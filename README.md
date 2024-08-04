@@ -93,7 +93,7 @@ assessments for each article. This process is not only time-consuming but also p
 
 4. **Generate Gemini-API key.**
    
-   <img align="center" src="./assets/api.png">  
+   <img align="center" src="./assets/API.png">  
      
   
 5. **Create a file *'api.env'* in current directory and save the API-key in it:**
