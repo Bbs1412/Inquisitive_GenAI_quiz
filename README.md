@@ -4,25 +4,12 @@
 
 This repository contains the content of <u>Inquisitive:</u> generative intelligence powered quiz generator.
 
-## Description
-&nbsp; &nbsp; &nbsp;
-The project is AI-driven multilingual question generator which creates quizzes from any text/news articles in any language.  
-&nbsp; &nbsp; &nbsp;
-The project incorporates language detection, machine translation, and a large language model (LLM) for accurate and contextually relevant quiz generation.  
-&nbsp; &nbsp; &nbsp;
-It utilizes the Gemini-API to create quizzes based on the given text context. In cases where the user inputs a topic instead of a large text, a paragraph is first provided for user comprehension, and then the quiz is generated based on it.  
-&nbsp; &nbsp; &nbsp;
-Users' submissions are recorded, and results are generated. A detailed analysis section allows users to review their performance and submissions. The sleek and user-friendly interface, is made with Streamlit which ensures a smooth and engaging user-experience.
-
-&nbsp; &nbsp; &nbsp;
-
-
 ## Table of Contents
 
 - [`Inquisitive` Generative-AI Powered Multilingual Quiz Generator](#inquisitive-generative-ai-powered-multilingual-quiz-generator)
-  - [Description](#description)
   - [Table of Contents](#table-of-contents)
   - [Problem Statement](#problem-statement)
+  - [Approach](#approach)
   - [Project Overview](#project-overview)
   - [Tech-Stack 💻](#tech-stack-)
   - [Links](#links)
@@ -37,6 +24,13 @@ Our client, NewsSphere, is a leading news organization dedicated to expanding it
 assessments for each article. This process is not only time-consuming but also prone to inconsistencies across different languages and cultural contexts.
 
 <img align="center" src="./assets/FlowChart.png">
+
+
+## Approach
+* The project is AI-driven multilingual question generator which creates quizzes from any text/news articles in any language.  
+* The project incorporates language detection, machine translation, and a large language model (LLM) for accurate and contextually relevant quiz generation.  
+* It utilizes the Gemini-API to create quizzes based on the given text context. In cases where the user inputs a topic instead of a large text, a paragraph is first provided for user comprehension, and then the quiz is generated based on it.  
+* Users' submissions are recorded, and results are generated. A detailed analysis section allows users to review their performance and submissions. The sleek and user-friendly interface, is made with Streamlit which ensures a smooth and engaging user-experience.
 
 
 ## Project Overview
