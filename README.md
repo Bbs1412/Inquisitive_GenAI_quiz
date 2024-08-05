@@ -1,4 +1,4 @@
-# `Inquisitive` Generative-AI Powered Quiz Generator
+# `Inquisitive` Generative-AI Powered Multilingual Quiz Generator
 
 <!-- <hr> -->
 
@@ -19,7 +19,7 @@ Users' submissions are recorded, and results are generated. A detailed analysis 
 
 ## Table of Contents
 
-- [`Inquisitive` Generative-AI Powered Quiz Generator](#inquisitive-generative-ai-powered-quiz-generator)
+- [`Inquisitive` Generative-AI Powered Multilingual Quiz Generator](#inquisitive-generative-ai-powered-multilingual-quiz-generator)
   - [Description](#description)
   - [Table of Contents](#table-of-contents)
   - [Problem Statement](#problem-statement)
@@ -51,11 +51,12 @@ assessments for each article. This process is not only time-consuming but also p
   
 1. **`Translation Back:`** The generated questions are translated back into the original language of the news article using the Translation API.
 
-1. **`Output:`** The app presents the questions in the original language to the user.
-   
-1. **`Quiz:`** User can now answer the various types of the questions generated.
+1. **`Output:`** The app presents the questions in the original language to the user in interactive format.
+   <img align="center" src="./assets/LLM.png">  
 
-1. **`Result:`** Once submitted ✅, results are visible on the screen.
+2. **`Quiz:`** User can now answer the various types of the questions generated like MCQ, Multiple Correct, Numerical type and True / False.
+
+3. **`Result:`** Once quiz is submitted ✅, results are visible on the screen with question wise result analysis.
 
 
 ## Tech-Stack 💻
@@ -91,9 +92,10 @@ assessments for each article. This process is not only time-consuming but also p
     pip install -r requirements.txt
     ```
 
-4. **Generate Gemini-API key.**
+4. **Generate Gemini-API key:**  
+    You need a Gemini API key to generate the content using Google's GenAI.  
    
-   <img align="center" src="./assets/API.png">  
+   <!-- <img align="center" src="./assets/API.png">   -->
      
   
 5. **Create a file *'api.env'* in current directory and save the API-key in it:**
@@ -121,7 +123,7 @@ assessments for each article. This process is not only time-consuming but also p
 ### Contact
 
    - **Email** - [bhushanbsongire@gmail.com](bhushanbsongire@gmail.com)
-   - **Git** - [Bbs1412](https://github.com/Bbs1412/)
+   <!-- - **Git** - [Bbs1412](https://github.com/Bbs1412/) -->
 
 
 <!-- ## Acknowledgments -->
