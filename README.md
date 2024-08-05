@@ -67,13 +67,13 @@ assessments for each article. This process is not only time-consuming but also p
 
 
 10. **`Evaluation:`** Once quiz is submitted ✅, submissions are checked for correctness.
-   <img align="center" src="./assets/ss5_check.png">  
+    <img align="center" src="./assets/ss5_check.png">  
 
 11. **`Result:`** Results are calculated and displayed on the page.
-   <img align="center" src="./assets/ss6_reult.png">  
+    <img align="center" src="./assets/ss6_reult.png">  
 
 12. **`Analysis:`** All the questions and answers can be analyzed in provided result analysis section.
-   <img align="center" src="./assets/ss7_result_analysis.png">  
+    <img align="center" src="./assets/ss7_result_analysis.png">  
 
 
 ## Tech-Stack 💻
