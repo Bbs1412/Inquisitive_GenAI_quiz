@@ -41,22 +41,39 @@ assessments for each article. This process is not only time-consuming but also p
 
 ## Project Overview
 
-1. **`User Input:`** User submits a news article in any language.
+1. **`User Input:`** User submits a topic or news article in any language.
+   <img align="center" src="./assets/ss1_page.png">  
 
-1. **`Language Detection:`** The app utilizes the Translation API to detect the language of the submitted content.
+2. **`Quiz Customizations:`** User can customize the quiz based on number of questions, difficulty level and requirement of hints.  
+   <img align="center" src="./assets/ss2_custom.png">  
 
-1. **`Translation to English:`** If the content is not in English, the app translates it into English using the Translation API.
+3. **`Paragraph Generation:`** In cases where the user inputs a topic instead of a large text, a paragraph is first provided for user comprehension.
+   <img align="center" src="./assets/ss3_para.png">  
+   
 
-1. **`Question Generation:`** The app calls the Gemini API to generate diverse and contextually relevant questions based on the input.
-  
-1. **`Translation Back:`** The generated questions are translated back into the original language of the news article using the Translation API.
+4. **`Language Detection:`** The app utilizes the Translation API to detect the language of the submitted content.
 
-1. **`Output:`** The app presents the questions in the original language to the user in interactive format.
+5. **`Translation to English:`** If the content is not in English, the app translates it into English using the Translation API.
+
+6. **`Question Generation:`** The app calls the Gemini API to generate diverse and contextually relevant questions based on the input.
    <img align="center" src="./assets/LLM.png">  
+  
+7. **`Translation Back:`** The generated questions are translated back into the original language of the news article using the Translation API.
 
-2. **`Quiz:`** User can now answer the various types of the questions generated like MCQ, Multiple Correct, Numerical type and True / False.
+8. **`Output:`** The app presents the questions in the original language to the user in interactive format.
 
-3. **`Result:`** Once quiz is submitted ✅, results are visible on the screen with question wise result analysis.
+9.  **`Quiz:`** User can now answer the various types of the questions generated like MCQ, Multiple Correct, Numerical type and True / False.
+   <img align="center" src="./assets/ss4_quiz.png">  
+
+
+10. **`Evaluation:`** Once quiz is submitted ✅, submissions are checked for correctness.
+   <img align="center" src="./assets/ss5_check.png">  
+
+11. **`Result:`** Results are calculated and displayed on the page.
+   <img align="center" src="./assets/ss6_reult.png">  
+
+12. **`Analysis:`** All the questions and answers can be analyzed in provided result analysis section.
+   <img align="center" src="./assets/ss7_result_analysis.png">  
 
 
 ## Tech-Stack 💻
