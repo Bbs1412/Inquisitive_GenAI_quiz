@@ -63,7 +63,7 @@ assessments for each article. This process is not only time-consuming but also p
 8. **`Output:`** The app presents the questions in the original language to the user in interactive format.
 
 9.  **`Quiz:`** User can now answer the various types of the questions generated like MCQ, Multiple Correct, Numerical type and True / False.
-   <img align="center" src="./assets/ss4_quiz.png">  
+    <img align="center" src="./assets/ss4_quiz.png">  
 
 
 10. **`Evaluation:`** Once quiz is submitted ✅, submissions are checked for correctness.
