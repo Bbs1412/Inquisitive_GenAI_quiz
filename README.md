@@ -2,7 +2,7 @@
 
 <!-- <hr> -->
 
-This repository contains the content of <u>Inquisitive:</u> generative intelligence powered quiz generator.
+This repository contains the content of <u>Inquisitive:</u> generative artificial intelligence powered quiz generator.
 
 ## Table of Contents
 
