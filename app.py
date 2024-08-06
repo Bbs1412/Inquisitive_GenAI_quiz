@@ -1,5 +1,5 @@
 from datetime import datetime
-# import app_gemini as api
+import app_gemini as api
 import streamlit as st
 import pandas as pd
 import json
@@ -66,6 +66,7 @@ cont.text("CSE 💻 student @ VIT-Chennai.")
 
 cont.subheader("Connect With me:", divider='red')
 
+
 def get_url(image_id: str, size: int = 30, color: str = '000000', format: str = "png") -> str:
     # url = "https://img.icons8.com/?size=30&id=3AYCSzCO85Qw&format=png&color=000000"
     url = f"https://img.icons8.com/?size={size}&id={image_id}&format={format}&color={color}"
@@ -83,8 +84,6 @@ c2.markdown('[/Bbs1412](https://github.com/Bbs1412/)')
 c1, c2 = cont.columns([2, 11], vertical_alignment="center", gap='small')
 c1.image(get_url('P7UIlhbpWzZm'))
 c2.markdown('[bhushanbsongire@gmail.com](mailto:bhushanbsongire@gmail.com)')
-
-# Generic: 3AYCSzCO85Qw  OLD: 37246 NICE: P7UIlhbpWzZm
 
 
 # Feel free to connect with me on social media!
@@ -158,8 +157,12 @@ st.subheader(":orange[Text Input]",
 # 📋
 
 c1, c2 = st.columns([4, 6], vertical_alignment='center')
-ip_name = c1.text_input("Your Name:",
-                        placeholder='Name')
+
+ip_name = c1.text_input(
+    "Your Name:",
+    placeholder='Name'
+)
+
 if ip_name:
     st.session_state.user_name = ip_name
 
@@ -170,6 +173,7 @@ ip_context = st.text_area(
     help="You can provide me with a news article, scientific study, historical event, fictional story, technical specification, or any large text.",
     placeholder="Paste an article, text paragraphs, or a complete news article here to generate a quiz... (Press ❓ icon for quick help)",
 )
+
 if ip_context:
     st.session_state.user_context = ip_context
 
@@ -179,6 +183,7 @@ ip_topic = st.text_input(
     help="Provide a topic or a brief context to receive a paragraph and generate a quiz based on it.",
     placeholder="Ask me some topic to generate quiz on...",
 )
+
 if ip_topic:
     st.session_state.user_topic = ip_topic
 
@@ -219,6 +224,7 @@ if st.session_state.customized:
     # c1, c2 = st.columns(2)
     c1, c2, cx = st.columns([3, 4, 3], vertical_alignment='center')
     c1.text("Number of Questions")
+
     que_count = c2.slider(
         label="Number of questions",
         min_value=5,
@@ -264,10 +270,11 @@ if not st.session_state.lock_config:
 # ======================================================================
 # Question Generation engine
 # ======================================================================
-generate_btn = st.button("Generate Quiz ✨",
-                         type='primary',
-                         disabled=st.session_state.lock_generate_btn
-                         )
+generate_btn = st.button(
+    "Generate Quiz ✨",
+    type='primary',
+    disabled=st.session_state.lock_generate_btn
+)
 
 # Check n lock the quiz customization (if not done yet) and lock generate button
 if generate_btn:
@@ -388,18 +395,7 @@ def generate_mcq(que_no: int, que: str, options: list,
 
     col_none, col_opts = st.columns([0.1, 0.9], gap='small')
 
-    # Now, i need to get the selected answer as 1,2,3,4
-    # Since, api returns correct option as 1...4
-    # So, mapper fn will map options 1..4 with actual option texts
-    # On screen, displayed thing is the option text
-    # but returned val is 1..4 by the radio button
     def mapper(param, opts=options):
-        # dic = {
-        #     "1": opts[0],
-        #     "2": opts[1],
-        #     "3": opts[2],
-        #     "4": opts[3],
-        # }
 
         dic = {}
         for i in range(0, len(opts)):
@@ -505,13 +501,14 @@ def generate_numeric(que_no: int, que: str,
         [0.4, 0.6], gap='small', vertical_alignment='bottom')
 
     col2_text.info("Enter the answer in ***integer*** only!", icon="ℹ️")
-    ans = col2_ip.number_input("Input:",
-                               min_value=0,
-                               step=1,
-                               value=pre_selected if pre_selected != None else 0,
-                               key=f"q_{que_no}",
-                               disabled=st.session_state.submitted
-                               )
+    ans = col2_ip.number_input(
+        "Input:",
+        min_value=0,
+        step=1,
+        value=pre_selected if pre_selected != None else 0,
+        key=f"q_{que_no}",
+        disabled=st.session_state.submitted
+    )
 
     return ans
 
@@ -798,8 +795,6 @@ if st.session_state.answer_checked:                 # result-display
     # result_box = st.form(key="bbs", clear_on_submit=False)
     result_box = st.container(border=True)
 
-    # Create one container so that we can load content dynamically in it
-    # Means, delete anything when needed, insert new section when needed
     i1, display, ignore2 = result_box.columns([0.5, 99, 0.5])
 
     # Fixed section to display everywhere:
@@ -917,7 +912,6 @@ if st.session_state.answer_checked:
 
 if st.session_state.certificate:                    # certificate
     info_text, _ = st.columns(2)
-    # info_text.error("Ham pe to hai ho nawww", icon="💥")
     info_text.info(" This feature will be available soon!", icon="♾️")
 
 # ======================================================================
@@ -931,13 +925,12 @@ if (curr_page == pages[1]):
 
     st.subheader(":red[Config] :")
     st.write(st.session_state.quiz_config)
-    
+
     st.subheader(":red[Questions] :")
     st.error(" Unauthorized!", icon="💥")
 
     st.subheader(":red[User solutions] :")
     st.error(" Unauthorized!", icon="💥")
-
 
 
 # ======================================================================
