@@ -133,8 +133,9 @@ assessments for each article. This process is not only time-consuming but also p
 ## License
 <!--
 [![License](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-green)](https://creativecommons.org/licenses/by-nc-nd/4.0/) 
--->
 [![License](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-grey?labelColor=green)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+-->
+[![License](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-brightgreen)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 
 ### Contact
