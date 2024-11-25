@@ -15,7 +15,8 @@ This repository contains the content of <u>Inquisitive:</u> generative artificia
   - [Links](#links)
   - [Installation](#installation)
   - [Contributions](#contributions)
-    - [Contact](#contact)
+  - [License](#license)
+  - [Contact](#contact)
 
 
 ## Problem Statement
@@ -131,11 +132,9 @@ assessments for each article. This process is not only time-consuming but also p
    Any contributions to this repo or suggestions are welcome! 
 
 ## License
-<!--
-[![License](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-green)](https://creativecommons.org/licenses/by-nc-nd/4.0/) 
-[![License](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-grey?labelColor=green)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
--->
-[![License](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-brightgreen)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+   [![Code-License](https://img.shields.io/badge/Codes%20-GNU%20--%20GPL%20v3.0-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)   
+   [![Media-License](https://img.shields.io/badge/Media-CC%20BY--NC--SA%204.0-brightgreen)](https://creativecommons.org/licenses/by-nc-sa/4.0/)   
 
 
 ### Contact
