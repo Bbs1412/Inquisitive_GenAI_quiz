@@ -81,7 +81,11 @@ assessments for each article. This process is not only time-consuming but also p
 ## Links
 
 1. Visit the deployed project on Streamlit Community Cloud:  
-    [Deployment Link](https://ai-quiz-generator-bbs.streamlit.app/)
+    [![Streamlit Link](https://img.shields.io/badge/Streamlit-Deployment_Link-red?style=flat&logo=streamlit)](https://ai-quiz-generator-bbs.streamlit.app/)
+
+2. Video demonstration of project implementation:  
+    [![YouTube](https://img.shields.io/badge/Youtube-Video_Link-red?style=flat&logo=youtube&logoColor=red)](https://youtu.be/FMK3w_kwbho)
+
 
 ## Installation
 
