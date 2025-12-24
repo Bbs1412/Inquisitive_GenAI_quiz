@@ -1,5 +1,7 @@
-numpy
-pandas
-streamlit
-python-dotenv
-google-generativeai
+# python 3.11
+numpy==2.0.1
+pandas==2.2.2
+packaging==24.1
+streamlit==1.37.0
+python-dotenv==1.0.1
+google-generativeai==0.7.2
