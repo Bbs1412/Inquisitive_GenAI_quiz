@@ -1,9 +1,36 @@
+# Please update the `IS_DEV_ENV` variable!!!!
+IS_DEV_ENV = True
+
 from datetime import datetime
 import app_gemini as api
 import streamlit as st
 import pandas as pd
 import json
 import time
+
+
+# ======================================================================
+# Logging function:
+# ======================================================================
+
+
+def write_log(parameter_text, newline=False):
+    # log only when under development, else just ignore!!!
+    if IS_DEV_ENV:
+        current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        if newline:
+            log_entry = f"\n[{current_datetime}] {parameter_text}\n"
+        else:
+            log_entry = f"[{current_datetime}] {parameter_text}\n"
+
+        with open("logs_app.txt", 'a') as file:
+            file.write(log_entry)
+    else:
+        return
+
+
+write_log("App code file started", True)
 
 
 # ======================================================================
@@ -15,7 +42,7 @@ st.set_page_config(
     page_title="Inquisitive - Quiz Generator",
 
     page_icon="✨",
-    # Can also use a path to an image file as the favicon
+    # You can also use a path to an image file as the favicon
 
     layout="centered",
     # layout="wide",
@@ -101,6 +128,9 @@ st.sidebar.markdown("""
 # State variables are like global variables but, streamlit version
 # Initialize session state variables
 
+if 'user_name' not in st.session_state:
+    st.session_state.user_name = "User"
+
 if 'user_topic' not in st.session_state:
     st.session_state.user_topic = ""
 
@@ -147,6 +177,7 @@ if 'certificate' not in st.session_state:
 
 # ar = np.arange(10, 50, 0.5).reshape(8, 10)
 # st.write(ar)
+write_log("Initial setup done and session var set.")
 
 # ======================================================================
 # User Input Section:
@@ -157,14 +188,10 @@ st.subheader(":orange[Text Input]",
 # 📋
 
 c1, c2 = st.columns([4, 6], vertical_alignment='center')
-
-ip_name = c1.text_input(
-    "Your Name:",
-    placeholder='Name'
-)
-
+ip_name = c1.text_input("Your Name:", placeholder='Name')
 if ip_name:
     st.session_state.user_name = ip_name
+    write_log(f"'Input' {ip_name} entered name")
 
 # st.text("Please paste some text paragraph or entire news article to generate quiz.")
 
@@ -176,6 +203,7 @@ ip_context = st.text_area(
 
 if ip_context:
     st.session_state.user_context = ip_context
+    write_log(f"'Input' context entered")
 
 
 ip_topic = st.text_input(
@@ -186,6 +214,7 @@ ip_topic = st.text_input(
 
 if ip_topic:
     st.session_state.user_topic = ip_topic
+    write_log(f"'Input' topic entered")
 
 # ======================================================================
 # Customizations in quiz:
@@ -199,6 +228,7 @@ if advanced:
     st.session_state.customized = not st.session_state.customized
 
 if st.session_state.customized:
+    write_log("'Config' Opened quiz customizations")
 
     st.markdown("""
             <h5 class="tt">You can customize the quiz using available options:</h5>
@@ -265,6 +295,7 @@ if not st.session_state.lock_config:
             "hint": que_hint,
         }
         st.session_state.lock_config = True
+        write_log("'Config' Locked with custom quiz config")
         st.rerun()
 
 # ======================================================================
@@ -281,13 +312,16 @@ if generate_btn:
     # If lock_config is false, means user didn't customize
     if not st.session_state.lock_config:
         st.session_state.lock_config = True
+        write_log("'Config' Locked with default Quiz customizations")
 
     if not st.session_state.lock_generate_btn:
         st.session_state.lock_generate_btn = True
+        write_log("'Generate' Button disabled.")
     st.rerun()
 
 # If generate button is locked, generate the quiz:
 if st.session_state.lock_generate_btn and (not st.session_state.api_called_once):
+    write_log('Started question generation part')
     st.session_state.api_called_once = True
 
     # no context or topic:
@@ -296,6 +330,7 @@ if st.session_state.lock_generate_btn and (not st.session_state.api_called_once)
             time.sleep(2)
             st.session_state.quiz_config['count'], st.session_state.user_context, st.session_state.quiz_ques = api.blank_call_default(
             )
+            write_log("'API' Made a default blank call")
             st.session_state.quiz_generated = True
 
     else:                                                   # context or topic is given
@@ -308,7 +343,9 @@ if st.session_state.lock_generate_btn and (not st.session_state.api_called_once)
 
             if (resp == "Error"):
                 st.warning("Some Error Occurred, Sorry for inconvenience.")
+                write_log("'API' Setup Failed")
             else:
+                write_log("'API' Setup Successful")
                 tmp_cont.write("✅ Setup Successful...")
 
         with st.spinner('Starting the question engine...'):
@@ -317,8 +354,10 @@ if st.session_state.lock_generate_btn and (not st.session_state.api_called_once)
 
             if (resp == "Error"):
                 st.warning("Some Error Occurred, Sorry for inconvenience.")
+                write_log("'API' Question Engine Failed")
             else:
                 tmp_cont.write("✅ Question Engine started successfully...")
+                write_log("'API' Question Engine started successfully")
 
         with st.spinner('Generating the quiz...'):
             time.sleep(1)
@@ -336,9 +375,12 @@ if st.session_state.lock_generate_btn and (not st.session_state.api_called_once)
 
                 if (resp == "Error"):
                     st.warning("Some Error Occurred, Sorry for inconvenience.")
+                    write_log("'Context': Failed to create para based on topic")
                 else:
                     tmp_cont.write("✅ Paragraph generated successfully...")
-                    st.session_state.user_context = resp['paragraph']
+                    write_log("'Context': Created paragraph based on topic")
+                    # st.session_state.user_context = resp['paragraph']
+                    st.session_state.user_context = f"# {resp['topic']} \n\n{resp['paragraph']}"
 
             if st.session_state.user_context:               # if context entered
                 resp = api.generate_quiz(
@@ -348,14 +390,19 @@ if st.session_state.lock_generate_btn and (not st.session_state.api_called_once)
                 )
                 if (resp == "Error"):
                     st.warning("Some Error Occurred, Sorry for inconvenience.")
+                    write_log(
+                        "'Context': Failed to create quiz based on context")
                 else:
                     st.session_state.quiz_config['count'], st.session_state.quiz_ques = resp
+                    write_log("'Context': Created Quiz based on context")
                     tmp_cont.write("✅ Created Quiz based on context...")
                     st.session_state.quiz_generated = True
 
             else:
                 st.warning(
                     "Some Logical Error Occurred, Sorry for inconvenience.")
+                write_log(
+                    "'Quiz': Some serious logical flaw in quiz generation calls!!!")
 
         tmp_cont.empty()
 
@@ -389,13 +436,25 @@ def generate_mcq(que_no: int, que: str, options: list,
                                 key=f"h_q{que_no}",
                                 disabled=not st.session_state.quiz_config['hint']
                                 )
+    write_log(st.session_state.quiz_config['hint'])
     if need_hint:
         col_none, col_hint = st.columns([0.1, 0.9], gap='small')
         col_hint.info(f"{hint}")
 
     col_none, col_opts = st.columns([0.1, 0.9], gap='small')
 
+    # Now, i need to get the selected answer as 1,2,3,4
+    # Since, api returns correct option as 1...4
+    # So, mapper fn will map options 1..4 with actual option texts
+    # On screen, displayed thing is the option text
+    # but returned val is 1..4 by the radio button
     def mapper(param, opts=options):
+        # dic = {
+        #     "1": opts[0],
+        #     "2": opts[1],
+        #     "3": opts[2],
+        #     "4": opts[3],
+        # }
 
         dic = {}
         for i in range(0, len(opts)):
@@ -584,6 +643,7 @@ if st.session_state.quiz_generated:                 # Show ques on page
                 hint=que['hint'],
                 pre_selected=None
             )
+            # write_log("'MCQ' generated on page")
 
         elif que['type'] == "Multiple":
             response = generate_multiple(
@@ -593,6 +653,7 @@ if st.session_state.quiz_generated:                 # Show ques on page
                 hint=que['hint'],
                 pre_selected=None
             )
+            # write_log("'Multiple' generated on page")
 
         elif que['type'] == "Bool":
             response = generate_bool(
@@ -601,6 +662,7 @@ if st.session_state.quiz_generated:                 # Show ques on page
                 hint=que['hint'],
                 pre_selected=None
             )
+            # write_log("'Bool' generated on page")
 
         elif que['type'] == "Numeric":
             response = generate_numeric(
@@ -608,6 +670,7 @@ if st.session_state.quiz_generated:                 # Show ques on page
                 hint=que['hint'],
                 que=que['question']
             )
+            # write_log("'Numeric' generated on page")
 
         # st.write(response)
 
@@ -619,6 +682,8 @@ if st.session_state.quiz_generated:                 # Show ques on page
             "answer": que['answer'],
             "hint": que['hint'],
         }
+    write_log("'Que' questions generated on page")
+    write_log("'Main' backend file updated")
 
     # Now, first give user submit button, then enable results button.
     # Submit button
@@ -651,6 +716,7 @@ if st.session_state.quiz_generated:                 # Show ques on page
 # Enable "Get Results" button only if submitted
 # Also, lock the answer submitting of the questions
 if st.session_state.submitted:
+    write_log("'Submit' submitted responses")
     st.success(" Submitted your responses successfully...", icon="✅")
 
     time.sleep(1)
@@ -667,6 +733,7 @@ if st.session_state.submitted:
 # Show results if "Get Results" button is clicked
 # ======================================================================
 if st.session_state.result_btn:                     # get results
+    write_log("'Result' button pressed")
     st.subheader(":orange[Results: ]", divider='grey')
 
     # Each question will be given diff weighage
@@ -755,6 +822,7 @@ if st.session_state.result_btn:                     # get results
 
     marks_percentage = marks_obtained / marks_total * 100
     st.session_state.answer_checked = True
+    write_log("'Result' marks check completed")
 
 
 # ======================================================================
@@ -782,6 +850,7 @@ if st.session_state.answer_checked:                 # result-display
         processing.empty()
         st.balloons()
         st.session_state.celebrate = False
+        write_log("'Balloons' result celebrated")
 
     actions = st.columns(4, vertical_alignment='center')
 
@@ -795,6 +864,8 @@ if st.session_state.answer_checked:                 # result-display
     # result_box = st.form(key="bbs", clear_on_submit=False)
     result_box = st.container(border=True)
 
+    # Create one container so that we can load content dynamically in it
+    # Means, delete anything when needed, insert new section when needed
     i1, display, ignore2 = result_box.columns([0.5, 99, 0.5])
 
     # Fixed section to display everywhere:
@@ -818,6 +889,7 @@ if st.session_state.answer_checked:                 # result-display
         display.latex(f"You \ got: \ {{{round(marks_percentage,2)}}}\ \%")
 
         # result_box.form_submit_button("Thank You 🙏", disabled=True)
+        write_log("'Result' Showing result section")
 
     elif act_btn_marks_table:                       # marks split
         df = pd.DataFrame(main_thing).transpose()
@@ -829,6 +901,7 @@ if st.session_state.answer_checked:                 # result-display
         # display.dataframe(df, use_container_width=True)
         display.table(df)
 
+        write_log("'Result' Showing marks dataframe section")
         # result_box.form_submit_button("Thank You 🙏", disabled=True)
 
     elif act_btn_feedbackDev:                       # developer feedback
@@ -836,6 +909,7 @@ if st.session_state.answer_checked:                 # result-display
                           placeholder="Please enter your invaluable feedback here which is not connected to any database at all! \nBut you can always mail me at: bhushanbsongire@gmail.com")
 
         # result_box.form_submit_button("Submit Feedback")
+        write_log("'Result' Showing developer feedback section")
         result_box.button("Submit Feedback")
 
     elif act_btn_analyze_ans:                       # analyze answers
@@ -886,6 +960,7 @@ if st.session_state.answer_checked:                 # result-display
                 """)
 
         # result_box.form_submit_button("Thank You 🙏", disabled=True)
+        write_log("'Result' Showing answer analysis section")
 
         a = result_box.download_button(
             label="Save Quiz ⬇️",
@@ -893,9 +968,14 @@ if st.session_state.answer_checked:                 # result-display
             file_name="bbs_quiz.json",
             mime="application/json",
         )
+        if a:
+            write_log("'Save' JSON file saved for quiz")
 
+    else:                                           # landing section
         warn_text, _ = display.columns(2)
         warn_text.warning(" Please open one of the above sections!", icon="⚠️")
+        write_log("'Result' landing page opened")
+        # warn_text.write("Ham pe to hai ho nawww")
 
         # result_box.form_submit_button("Thank You 🙏", disabled=True)
 
@@ -908,6 +988,7 @@ if st.session_state.answer_checked:
     cert_btn = st.button("Generate Certificate", type='secondary')
     if cert_btn:
         st.session_state.certificate = True
+        write_log("'Certificated' Certificate demanded")
 
 
 if st.session_state.certificate:                    # certificate
@@ -923,14 +1004,28 @@ if (curr_page == pages[1]):
 
     st.header(":rainbow[Debugging Section] :bug::", divider="grey")
 
-    st.subheader(":red[Config] :")
-    st.write(st.session_state.quiz_config)
+    if not IS_DEV_ENV:
+        st.subheader(":red[Config] :")
+        st.write(st.session_state.quiz_config)
+        st.subheader(":red[Questions] :")
+        st.error(" Unauthorized!", icon="💥")
+        st.subheader(":red[User solutions] :")
+        st.error(" Unauthorized!", icon="💥")
 
-    st.subheader(":red[Questions] :")
-    st.error(" Unauthorized!", icon="💥")
+        write_log(f"'Debug' Entered Debug Section [Unauthorized]")
 
-    st.subheader(":red[User solutions] :")
-    st.error(" Unauthorized!", icon="💥")
+    else:
+        st.subheader(":red[Config] :")
+        st.write(st.session_state.quiz_config)
+        st.subheader(":red[Questions] :")
+        st.write("`Questions generated are:`")
+        st.json(st.session_state.quiz_ques)
+
+        st.subheader(":red[User solutions] :")
+        st.write("`User submissions are:`")
+        st.json(main_thing)
+
+        write_log(f"'Debug' Entered Debug Section [Authorized]")
 
 
 # ======================================================================
