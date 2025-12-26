@@ -1,0 +1,241 @@
+{
+    "1": {
+        "para": "MS Outage:\nHow did it begin?\nIn the late evening of Thursday, several users in the Central US region experienced issues with Azure services and its Microsoft 365 suite of apps. The issues reported were related to failures with service management operations and connectivity or availability of services. Most of the users were not able to access apps like OneNote, OneDrive, Defender, SharePoint, Windows 365, Teams, etc. Though some of these apps are now back online.\nReportedly, companies in Australia were the first to report the error after several broadcasters and banks were unable to access their Windows machines. Most of them were shown the blue screen of death (BSOD), a window that appears when a system fails to boot properly. By the time European nations embarked on their workday, it was reported that this had become a global problem impacting several industries across the globe.",
+        "que_json": [
+            {
+                "que_no": 1,
+                "type": "MCQ",
+                "question": "What region initially experienced issues with Azure services?",
+                "options": [
+                    "Central US",
+                    "Australia",
+                    "Europe",
+                    "Asia"
+                ],
+                "hint": "The article mentions the specific region where the issue started.",
+                "answer": 1
+            },
+            {
+                "que_no": 2,
+                "type": "MCQ",
+                "question": "What kind of problems did users in the Central US region experience?",
+                "options": [
+                    "Connectivity issues",
+                    "Service management operation failures",
+                    "Inability to access apps like OneNote and OneDrive",
+                    "All of the above"
+                ],
+                "hint": "The article details the problems experienced by users.",
+                "answer": 4
+            },
+            {
+                "que_no": 3,
+                "type": "MCQ",
+                "question": "Which country first reported errors related to Azure services?",
+                "options": [
+                    "Australia",
+                    "US",
+                    "Europe",
+                    "Japan"
+                ],
+                "hint": "The article specifies which country reported the issue first.",
+                "answer": 1
+            },
+            {
+                "que_no": 4,
+                "type": "MCQ",
+                "question": "What does the article refer to as a 'global problem'?",
+                "options": [
+                    "The inability to access Azure services",
+                    "The impact of Azure services failures on businesses",
+                    "The occurrence of the blue screen of death on several machines",
+                    "The global outage of Microsoft services"
+                ],
+                "hint": "Consider the overall context of the article.",
+                "answer": 4
+            },
+            {
+                "que_no": 5,
+                "type": "Multiple",
+                "question": "Which of the following industries were affected by the Azure outage?",
+                "options": [
+                    "Banking",
+                    "Broadcasting",
+                    "Education",
+                    "Healthcare"
+                ],
+                "hint": "The article mentions specific examples of businesses affected.",
+                "answer": [
+                    1,
+                    2
+                ]
+            },
+            {
+                "que_no": 6,
+                "type": "Multiple",
+                "question": "Which of the following services were reportedly down during the Azure outage?",
+                "options": [
+                    "OneNote",
+                    "SharePoint",
+                    "Windows 365",
+                    "Facebook"
+                ],
+                "hint": "The article lists services impacted by the outage.",
+                "answer": [
+                    1,
+                    2,
+                    3
+                ]
+            },
+            {
+                "que_no": 7,
+                "type": "Numeric",
+                "question": "How many days of the week are mentioned in the context as being impacted by the Azure outage?",
+                "hint": "Think about the sequence of events mentioned.",
+                "answer": 3
+            },
+            {
+                "que_no": 8,
+                "type": "Numeric",
+                "question": "How many continents are mentioned as being affected by the Azure outage?",
+                "hint": "The context mentions multiple regions, consider how many continents those regions span.",
+                "answer": 3
+            },
+            {
+                "que_no": 9,
+                "type": "Bool",
+                "question": "The Azure outage affected users in the Central US only.",
+                "hint": "Read the article carefully about the global nature of the issue.",
+                "answer": "False"
+            },
+            {
+                "que_no": 10,
+                "type": "Bool",
+                "question": "All affected Azure services are currently back online.",
+                "hint": "Pay attention to the information about the status of services.",
+                "answer": "False"
+            }
+        ]
+    },
+    "2": {
+        "para": "Pune rains:\n3 Electrocuted In Flooded Pune After Heavy Rain, Rain In Mumbai Too\nTwo out of seven lakes in Mumbai are overflowing. Pune collector Suhas Diwase has asked residents to stay indoors\nIndia NewsNDTV News DeskUpdated: July 25, 2024 12:41 pm IST\n\nPune: Heavy rain has led to waterlogging in several areas in Pune paralysed normal life. Schools have been shut and residential apartments in Pune's Pimpri-Chinchwad have been flooded. Three people have been electrocuted while wading through a waterlogged street.\nMumbai and neighbouring areas such as Thane are also reeling due to heavy rain. Some areas in Andheri, Sion, Chembur and Kurla and Thane's Mumbra are waterlogged. The Andheri Subway in Mumbai has been closed due to waterlogging. The Brihanmumbai Municipal Corporation said that Vihar Lake and Modak Sagar Lake, two of the seven lakes supplying water to the city, started overflowing early today. The capacities of the lakes are 2,769 crore litres and 12,892 litres.\n\n Modak-Sagar Lake, one of the 7 lakes supplying water to the entire Mumbai metropolitan area, started overflowing at around 10:40 AM today. Modak-Sagar Lake is the fourth lake to overflow this season. The full storage capacity of Modak-Sagar Lake is 12,892.5 crore liters… pic.twitter.com/56p8OWAX6D\n— (@mybmc) July 25, 2024\nIn Pune, three teams of National Disaster Response Force (NDRF) have joined rescue work at Ekta Nagar, Sinhgad Road and Varje areas. Some places have water up to the waist level. The Baba Bhide bridge on Mutha river is now underwater after the water level rose following the downpour.\n\nDeputy Chief Minister Ajit Pawar has reviewed the situation and asked the district administration to stay alert. Pune collector Suhas Diwase has ordered the closure of all tourist spots in the district for 48 hours. He has also said traffic movement will be prohibited on bridges in danger of being submerged. The district administration has also asked residents to stay indoors and step out only if it's necessary.\nKhadakwasla dam has reached its full capacity due to heavy rainfall. An alert has been issued to residents living along Mutha riverbank.\nAt Deccan Gymkhana area, three people were electrocuted early today when they tried to recover a handcart from a flooded street. Abhishek Ghanekar, Akash Mane and Shiva Parihar were street food vendors and used the handcart as their stall.",
+        "que_json": [
+            {
+                "que_no": 1,
+                "type": "MCQ",
+                "question": "What caused the flooding in Pune?",
+                "options": [
+                    "Heavy rain",
+                    "A broken dam",
+                    "Earthquake",
+                    "Tsunami"
+                ],
+                "hint": "The article mentions the reason for the flooding.",
+                "answer": 1
+            },
+            {
+                "que_no": 2,
+                "type": "MCQ",
+                "question": "How many people were electrocuted in Pune?",
+                "options": [
+                    "1",
+                    "2",
+                    "3",
+                    "4"
+                ],
+                "hint": "The article mentions the number of people who died.",
+                "answer": 3
+            },
+            {
+                "que_no": 3,
+                "type": "MCQ",
+                "question": "What is the name of the bridge that is now underwater?",
+                "options": [
+                    "Baba Bhide bridge",
+                    "Deccan Gymkhana bridge",
+                    "Andheri Subway",
+                    "Vihar Lake bridge"
+                ],
+                "hint": "The article mentions the specific bridge name.",
+                "answer": 1
+            },
+            {
+                "que_no": 4,
+                "type": "MCQ",
+                "question": "Which of the following lakes in Mumbai have started overflowing?",
+                "options": [
+                    "Modak Sagar Lake",
+                    "Vihar Lake",
+                    "Powai Lake",
+                    "Tulsi Lake"
+                ],
+                "hint": "The article mentions two specific lakes in Mumbai that are overflowing.",
+                "answer": 2
+            },
+            {
+                "que_no": 5,
+                "type": "Multiple",
+                "question": "What are some of the areas in Mumbai that have experienced waterlogging due to heavy rain?",
+                "options": [
+                    "Andheri",
+                    "Sion",
+                    "Chembur",
+                    "Kurla"
+                ],
+                "hint": "The article mentions several areas in Mumbai experiencing waterlogging.",
+                "answer": [
+                    1,
+                    2,
+                    3,
+                    4
+                ]
+            },
+            {
+                "que_no": 6,
+                "type": "Multiple",
+                "question": "What actions has the Pune collector Suhas Diwase taken in response to the heavy rain?",
+                "options": [
+                    "Asked residents to stay indoors",
+                    "Ordered closure of all tourist spots",
+                    "Prohibited traffic on bridges",
+                    "Ordered closure of all schools"
+                ],
+                "hint": "The article describes actions taken by the collector.",
+                "answer": [
+                    1,
+                    2,
+                    3,
+                    4
+                ]
+            },
+            {
+                "que_no": 7,
+                "type": "Numeric",
+                "question": "How many lakes supply water to the Mumbai metropolitan area?",
+                "hint": "The article mentions the total number of lakes.",
+                "answer": 7
+            },
+            {
+                "que_no": 8,
+                "type": "Numeric",
+                "question": "What is the full storage capacity of Modak-Sagar Lake in crore liters?",
+                "hint": "The article mentions the lake's full capacity.",
+                "answer": 12892
+            },
+            {
+                "que_no": 9,
+                "type": "Bool",
+                "question": "The Andheri Subway in Mumbai has been closed due to waterlogging.",
+                "hint": "Read the article carefully.",
+                "answer": "True"
+            },
+            {
+                "que_no": 10,
+                "type": "Bool",
+                "question": "The heavy rain has also affected the city of Delhi.",
+                "hint": "Read the article carefully.",
+                "answer": "False"
+            }
+        ]
+    }
+}
