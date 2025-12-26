@@ -2,7 +2,7 @@
 IS_DEV_ENV = True
 
 from datetime import datetime
-import app_gemini as api
+import llm_logic as api
 import streamlit as st
 import pandas as pd
 import json

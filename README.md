@@ -114,12 +114,17 @@ assessments for each article. This process is not only time-consuming but also p
    <!-- <img align="center" src="./assets/API.png">   -->
      
   
-5. **Create a file *'api.env'* in current directory and save the API-key in it:**
-    ```python
-    API="your_key"
-    ```
+5. **Create a file *'.env'* in current directory and save the API-key in it:**
+   ```python
+   API="your_key"
+   ```
 
-6. Run the app:
+6. **Add API key in *'.streamlit/secrets.toml'* file as:**
+   ```python
+   API="your_key"
+   ```
+
+7. Run the app:
    ```bash
    streamlit run app.py
    ```
@@ -129,6 +134,14 @@ assessments for each article. This process is not only time-consuming but also p
    future_work_here
    update the numbers as well
    -->
+
+## Changes:
+
+1. Model Name:
+   - With time, new models from Google are released. Support for old models may be deprecated.
+   - Hence, update the model name in the code as per the latest available models from Google Gemini.
+   - In `generate_para()`, set the model you want to use for paragraph generation.
+   - In `start_question_engine()`, set the model you want to use for question generation.
 
    
 ## Contributions  
